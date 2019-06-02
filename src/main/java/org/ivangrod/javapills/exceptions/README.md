@@ -26,19 +26,19 @@ Exceptions are, after all, simply Java objects that extend the **Throwable** int
 
 Sometimes, by using simple checks, we can avoid an exception forming altogether:
 
-(link)
+[Sample](src/main/java/org/ivangrod/javapills/exceptions/HandlingExceptionPractices.java#L11-L23)
 
 Calling this method with an index that's out of bounds would result in a null value. In any case, even though the index is too high, the offending line of code will not execute and no exception will arise.
 
 ### Use try-with-resources
 
-(link)
+[Sample](src/main/java/org/ivangrod/javapills/exceptions/HandlingExceptionPractices.java#L36-L44)
 
 ### Close resources in try-catch-finally (previous Java 7)
 
 If you're not utilizing the previous advice for any reason, at least make sure to close the resources manually in the **finally** block:
 
-(link)
+[Sample](src/main/java/org/ivangrod/javapills/exceptions/HandlingExceptionPractices.java#L46-L53)
 
 The finally block executes regardless of what happens in the try block. Even if it ends abruptly by throwing an exception, the finally block will execute.
 
@@ -50,7 +50,7 @@ This was often used to close the resources that were opened in the try block sin
 
 If your intention is to simply satisfy the compiler, you can easily do so by swallowing the exception:
 
-(link)
+[Sample](src/main/java/org/ivangrod/javapills/exceptions/HandlingExceptionPractices.java#L55-L71)
 
 Swallowing an exception refers to the act of catching an exception and not fixing the issue.
 
@@ -58,7 +58,7 @@ Swallowing an exception refers to the act of catching an exception and not fixin
 
 In essence, by abruptly returning from a **finally** block, the JVM will drop the exception from the try block and all valuable data from it will be lost:
 
-(link)
+[Sample](src/main/java/org/ivangrod/javapills/exceptions/HandlingExceptionPractices.java#L73-L80)
 
 In this case, even though the try block throws a new IOException, we use return in the finally block, ending it abruptly. This causes the try block to end abruptly due to the return statement, and not the IOException, essentially dropping the exception in the process.
 
@@ -66,13 +66,13 @@ In this case, even though the try block throws a new IOException, we use return 
 
 Using throw in a finally block will drop the exception from the try-catch block:
 
-(link)
+[Sample](src/main/java/org/ivangrod/javapills/exceptions/HandlingExceptionPractices.java#L82-L90)
 
 ### Logging and Throwing (X)
 
 Doing this is redundant and will simply result in a bunch of log messages which aren't really needed. The amount of text will reduce the visibility of the logs:
 
-(link)
+[Sample](src/main/java/org/ivangrod/javapills/exceptions/HandlingExceptionPractices.java#L92-L100)
 
 Doing this is redundant and will simply result in a bunch of log messages which aren't really needed. The amount of text will reduce the visibility of the logs.
 

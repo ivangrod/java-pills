@@ -1,10 +1,7 @@
 package org.ivangrod.javapills.exceptions;
 
-import javax.swing.plaf.synth.SynthParser;
 import java.io.*;
-import java.nio.charset.Charset;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 public class HandlingExceptionPractices {
 
